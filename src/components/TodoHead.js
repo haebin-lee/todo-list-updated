@@ -31,19 +31,21 @@ const TodoHeadBlock = styled.div`
 
 function TodoHead() {
     const todos = useTodoState()
-    console.log(todos);
+    const undoneTasks = todos.filter(todo => !todo.done);
 
-
+    const today = new Date();
+    const dateString = today.toLocaleDateString('en', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    })
+    const dayName = today.toLocaleDateString('en', {weekday: 'long'})
     return (
         <TodoHeadBlock>
-            <h1>Apr 14th, 2024</h1>
-            <div className="day">Wednesday</div>
-            <div className="task-left">have 2 left.</div>
-
+            <h1>{dateString}</h1>
+            <div className="day">{dayName}</div>
+            <div className="task-left">have {undoneTasks.length} left.</div>
         </TodoHeadBlock>
     )
-
-
 }
-
 export default TodoHead;

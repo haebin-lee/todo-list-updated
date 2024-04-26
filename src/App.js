@@ -5,6 +5,7 @@ import TodoHead from "./components/TodoHead";
 import TodoList from "./components/TodoList";
 import TodoCreate from "./components/TodoCreate";
 import {TodoProvider} from "./TodoContext";
+import Users from "./api/Users";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -15,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
 function App() {
   return(
       <>
+          {/*<Users/>*/}
           <TodoProvider>
               <GlobalStyle/>
               <TodoTemplate>
